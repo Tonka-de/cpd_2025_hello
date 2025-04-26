@@ -1,11 +1,13 @@
 import 'package:flutter/widgets.dart';
-import 'package:todo_app/model.dart';
-import 'package:todo_app/todo_input.dart';
-import 'package:todo_app/todo_list.dart';
-import 'package:todo_app/todo_metadata.dart';
+import 'package:flutter_aufgaben/model/model.dart';
+import 'package:flutter_aufgaben/widgets/todo/todo_input.dart';
+import 'package:flutter_aufgaben/widgets/todo/todo_list.dart';
+import 'package:flutter_aufgaben/widgets/todo/todo_metadata.dart';
 
 /// A widget representing the main page of the Todo app.
+///
 /// It manages the state of the todo list and provides methods to add, remove, and toggle items.
+/// It also contains the UI components for displaying the todo list, input field, and metadata.
 class TodoPageWidget extends StatefulWidget {
   const TodoPageWidget({super.key});
 
@@ -14,7 +16,6 @@ class TodoPageWidget extends StatefulWidget {
 }
 
 /// The state class for [TodoPageWidget].
-/// It contains the logic for managing the todo list and updating the UI.
 class _TodoPageWidgetState extends State<TodoPageWidget> {
   final todoList = TodoList();
 
@@ -42,7 +43,6 @@ class _TodoPageWidgetState extends State<TodoPageWidget> {
     });
   }
 
-  /// Builds the UI for the Todo page.
   @override
   Widget build(BuildContext context) {
     return Padding(

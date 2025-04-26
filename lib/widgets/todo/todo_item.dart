@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/model.dart';
+import 'package:flutter_aufgaben/model/model.dart';
 
 /// A widget that represents a single todo item.
-/// It displays the task description and provides options to delete or toggle the task.
+///
+/// This widget is responsible for displaying the [TodoItem].
+///
+/// Properties:
+/// - [task]: The todo item to be displayed.
+/// This attribute is required.
+/// - [onDelete]: A callback function to handle the deletion of the todo item.
+/// This attribute is required.
+/// - [onToggle]: A callback function to handle toggling the completion status of the todo item.
+/// This attribute is required.
 class TodoItemWidget extends StatelessWidget {
   /// The todo item to be displayed.
   /// This attribute is required and cannot be null.

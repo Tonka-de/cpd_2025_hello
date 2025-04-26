@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo_page.dart';
+import 'package:flutter_aufgaben/router/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,11 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo App',
       theme: ThemeData.dark(),
-
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Todo App")),
-        body: const TodoPageWidget(),
-      ),
+      routes: buildAppRoutes(),
+      initialRoute: '/login',
     );
   }
 }

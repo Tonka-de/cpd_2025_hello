@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 /// A widget that provides an input field for adding new todo items.
-/// It includes a text field and a button to submit the new task.
+///
+/// Properties:
+/// - [onAdd]: A callback function that is triggered when a new todo item is submitted.
+///   The function receives the entered text as a parameter.
+/// This attribute is required.
 class TodoInputWidget extends StatefulWidget {
   /// Callback function to handle the addition of a new todo item.
   /// It takes the text of the new item as a parameter.
@@ -15,12 +19,16 @@ class TodoInputWidget extends StatefulWidget {
 }
 
 /// The state class for [TodoInputWidget].
-/// It manages the input field and handles the submission of new tasks.
+///
+/// This class manages the state of the input field and handles the logic for submitting new tasks.
+/// It ensures that the input field is cleared after a task is submitted.
 class _TodoInputWidgetState extends State<TodoInputWidget> {
   final TextEditingController _controller = TextEditingController();
 
   /// Submits the entered text as a new todo item.
-  /// Clears the input field after submission.
+  ///
+  /// If the input field is empty, the submission is ignored. Otherwise, the entered text
+  /// is passed to the [onAdd] callback, and the input field is cleared.
   void _submit() {
     final String text = _controller.text;
     if (text.isEmpty) {

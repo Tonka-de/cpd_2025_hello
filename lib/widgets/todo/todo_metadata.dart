@@ -1,16 +1,19 @@
 import 'package:flutter/widgets.dart';
-import 'package:todo_app/model.dart';
+import 'package:flutter_aufgaben/model/model.dart';
 
 /// A widget that displays metadata about the todo list.
-/// It shows the total number of items, completed items, and pending items.
+///
+/// It displays the [TodoListMetadata].
+///
+/// Properties:
+/// - [metadata]: The metadata to be displayed.
+/// This attribute is required.
 class TodoMetadataWidget extends StatelessWidget {
   /// The metadata to be displayed.
-  /// This attribute is required and cannot be null.
   final TodoListMetadata metadata;
 
   const TodoMetadataWidget({super.key, required this.metadata});
 
-  /// Builds the UI for displaying the metadata.
   @override
   Widget build(BuildContext context) {
     return Row(
