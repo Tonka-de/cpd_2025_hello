@@ -1,16 +1,11 @@
-# flutter_aufgaben
+# Flutter Aufgaben
 
-A new Flutter project.
+Link zu [Aufgabe 3](https://github.com/Tonka-de/cpd_2025_hello.git)
 
-## Getting Started
+## Aufgabe war:
 
-This project is a starting point for a Flutter application.
+Füge Flutter-Secure-Storage hinzu sowie eine einfache Authentication, mit hardcoded Username und Password.
 
-A few resources to get you started if this is your first Flutter project:
+## Getestet:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+In Chrome mit `ungoogled-chromium-bin 135.0.7049.95-1` unter `Arch-Linux`.
