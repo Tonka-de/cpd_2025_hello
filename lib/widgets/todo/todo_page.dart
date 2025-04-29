@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_aufgaben/model/model.dart';
+import 'package:flutter_aufgaben/model/todo_item.model.dart';
+import 'package:flutter_aufgaben/model/todo_list.model.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_input.dart';
+import 'package:flutter_aufgaben/widgets/todo/todo_json_buttons.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_list.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_metadata.dart';
 
@@ -17,13 +19,13 @@ class TodoPageWidget extends StatefulWidget {
 
 /// The state class for [TodoPageWidget].
 class _TodoPageWidgetState extends State<TodoPageWidget> {
-  final todoList = TodoList();
+  var todoList = TodoList();
 
   /// Adds a new item to the todo list.
   /// Updates the UI after adding the item.
-  void _addItem(String text) {
+  void _addItem(String text, DateTime date) {
     setState(() {
-      todoList.addItem(text);
+      todoList.addItem(text, date);
     });
   }
 
@@ -43,6 +45,25 @@ class _TodoPageWidgetState extends State<TodoPageWidget> {
     });
   }
 
+  /// Edits an existing item in the todo list.
+  /// Updates the UI after editing the item.
+  void _editItem(TodoItem item) {
+    setState(() {
+      todoList.editItem(item);
+    });
+  }
+
+  /// Imports a JSON string to update the todo list.
+  /// Updates the UI after importing the JSON.
+  void _importJson(TodoList? data) {
+    if (data == null) {
+      return;
+    }
+    setState(() {
+      todoList = data;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -50,13 +71,15 @@ class _TodoPageWidgetState extends State<TodoPageWidget> {
       child: Column(
         spacing: 8.0,
         children: [
+          TodoJsonButtons(onImport: _importJson, data: todoList),
           TodoMetadataWidget(metadata: todoList.metadata),
-          TodoInputWidget(onAdd: _addItem),
           TodoListWidget(
             list: todoList.items,
             onDelete: _removeItem,
             onToggle: _toggleItem,
+            onEdit: _editItem,
           ),
+          TodoInputWidget(onAdd: _addItem),
         ],
       ),
     );

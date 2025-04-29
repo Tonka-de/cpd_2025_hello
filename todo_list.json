@@ -1,0 +1,1 @@
+{"metadata":{"totalItems":3,"totalPending":1,"totalCompleted":1,"totalFailed":1},"items":[{"id":0,"name":"test1","status":"Failed","deadline":"2025-04-10T00:00:00.000"},{"id":1,"name":"test2","status":"Pending","deadline":"2025-04-29T18:43:13.637065"},{"id":2,"name":"test3","status":"Completed","deadline":"2025-04-29T18:43:13.637065"}]}

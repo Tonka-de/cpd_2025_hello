@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "totalItems": 3,
+    "totalPending": 1,
+    "totalCompleted": 1,
+    "totalFailed": 1
+  },
+  "items": [
+    {
+      "id": 1,
+      "name": "Todo-Name",
+      "status": "in-progress",
+      "deadline": "2025-12-31T23:59:59.999Z"
+    },
+    {
+      "id": 2,
+      "name": "Todo-Name",
+      "status": "completed",
+      "deadline": "2025-12-31T23:59:59.999Z"
+    },
+    {
+      "id": 3,
+      "name": "Todo-Name",
+      "status": "failed",
+      "deadline": "2024-12-31T23:59:59.999Z"
+    }
+  ]
+}

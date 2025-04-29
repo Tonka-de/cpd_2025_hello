@@ -1,5 +1,5 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_aufgaben/model/model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_aufgaben/model/todo_metadata.model.dart';
 
 /// A widget that displays metadata about the todo list.
 ///
@@ -21,8 +21,18 @@ class TodoMetadataWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text("Items: ${metadata.totalItems}"),
-        Text("Completed: ${metadata.totalCompleted}"),
-        Text("Pending: ${metadata.totalPending}"),
+        Text(
+          "Completed: ${metadata.totalCompleted}",
+          style: TextStyle(color: Colors.green),
+        ),
+        Text(
+          "Pending: ${metadata.totalPending}",
+          style: TextStyle(color: Colors.yellow),
+        ),
+        Text(
+          "Failed: ${metadata.totalFailed}",
+          style: TextStyle(color: Colors.red),
+        ),
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_aufgaben/model/model.dart';
+import 'package:flutter_aufgaben/model/todo_item.model.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_item.dart';
 
 /// A widget that displays a list of todo items.
@@ -20,39 +20,25 @@ class TodoListWidget extends StatelessWidget {
   final List<TodoItem> list;
 
   /// Callback function to handle item deletion.
-  /// It takes the index of the item to be deleted as a parameter.
+  /// It takes the id of the item to be deleted as a parameter.
   final void Function(int) onDelete;
 
   /// Callback function to handle item toggling.
-  /// It takes the index of the item to be toggled as a parameter.
+  /// It takes the id of the item to be toggled as a parameter.
   final void Function(int) onToggle;
+
+  /// Callback function to handle item editing.
+  /// It takes the [TodoItem] to be edited as a parameter.
+  final void Function(TodoItem) onEdit;
 
   const TodoListWidget({
     super.key,
     required this.list,
     required this.onDelete,
     required this.onToggle,
+    required this.onEdit,
   });
 
-  /// Generates a callback for handling the deletion of a todo item.
-  ///
-  /// This method wraps the [onDelete] callback to provide a [VoidCallback] that can be used in the UI.
-  VoidCallback _handleDelete(int index) {
-    return () {
-      onDelete(index);
-    };
-  }
-
-  /// Generates a callback for handling the toggling of a todo item.
-  ///
-  /// This method wraps the [onToggle] callback to provide a [VoidCallback] that can be used in the UI.
-  VoidCallback _handleToggle(int index) {
-    return () {
-      onToggle(index);
-    };
-  }
-
-  /// Builds the UI for the todo list.
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -61,8 +47,9 @@ class TodoListWidget extends StatelessWidget {
         itemBuilder:
             (context, index) => TodoItemWidget(
               task: list[index],
-              onDelete: _handleDelete(index),
-              onToggle: _handleToggle(index),
+              onDelete: onDelete,
+              onToggle: onToggle,
+              onEdit: onEdit,
             ),
         separatorBuilder: (context, index) => Container(height: 8),
       ),

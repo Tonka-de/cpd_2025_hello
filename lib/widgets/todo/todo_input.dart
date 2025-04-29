@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_aufgaben/widgets/date_input.dart';
 
 /// A widget that provides an input field for adding new todo items.
 ///
@@ -8,9 +9,8 @@ import 'package:flutter/material.dart';
 /// This attribute is required.
 class TodoInputWidget extends StatefulWidget {
   /// Callback function to handle the addition of a new todo item.
-  /// It takes the text of the new item as a parameter.
-  /// This attribute is required and cannot be null.
-  final void Function(String text) onAdd;
+  /// It takes the text of the new item and deadline as parameters.
+  final void Function(String text, DateTime date) onAdd;
 
   const TodoInputWidget({super.key, required this.onAdd});
 
@@ -25,6 +25,8 @@ class TodoInputWidget extends StatefulWidget {
 class _TodoInputWidgetState extends State<TodoInputWidget> {
   final TextEditingController _controller = TextEditingController();
 
+  DateTime _date = DateTime.now();
+
   /// Submits the entered text as a new todo item.
   ///
   /// If the input field is empty, the submission is ignored. Otherwise, the entered text
@@ -34,11 +36,16 @@ class _TodoInputWidgetState extends State<TodoInputWidget> {
     if (text.isEmpty) {
       return;
     }
-    widget.onAdd(text);
+    widget.onAdd(text, _date);
     _controller.clear();
   }
 
-  /// Builds the UI for the input field and submit button.
+  void handleChangeDate(DateTime date) {
+    setState(() {
+      _date = date;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -54,6 +61,7 @@ class _TodoInputWidgetState extends State<TodoInputWidget> {
             onEditingComplete: _submit,
           ),
         ),
+        DateInput(onChange: handleChangeDate, date: _date),
         TextButton(onPressed: _submit, child: Text("Add")),
       ],
     );
