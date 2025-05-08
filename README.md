@@ -1,6 +1,6 @@
 # Flutter Aufgaben
 
-Link zu [Aufgabe 4](https://github.com/Tonka-de/cpd_2025_hello.git)
+Link zu [Aufgabe 4](https://github.com/Tonka-de/cpd_2025_hello/tree/aufgabe4)
 
 ## Aufgabe war:
 
@@ -12,6 +12,15 @@ Erstellt eine JSON-Datei für die Todos mit folgenden Informationen:
 - Todo-Deadline
 
 Ladet diese JSON-Datei in eure App.
+
+## Info
+
+Der Login wurde temporär deaktiviert. Es ist nicht ziel der Aufgabe, sollte daher nicht das Aufgabenrelevante verhindern.
+
+## Credentials
+
+Username: admin
+Password: password123
 
 ## Getestet:
 
