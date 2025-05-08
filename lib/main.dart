@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Todo App',
       theme: ThemeData.dark(),
       routes: buildAppRoutes(),
-      initialRoute: '/login',
+      initialRoute: '/todo',
     );
   }
 }
