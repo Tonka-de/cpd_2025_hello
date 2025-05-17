@@ -4,7 +4,7 @@ enum TodoStatus { pending, completed, failed }
 /// Extension to convert TodoStatus enum to string and vice versa.
 extension TodoStatusExtension on TodoStatus {
   /// Converts the TodoStatus enum to a string representation.
-  static String toJson(TodoStatus status) {
+  static String toDBString(TodoStatus status) {
     switch (status) {
       case TodoStatus.pending:
         return 'Pending';

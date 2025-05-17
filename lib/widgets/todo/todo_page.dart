@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_aufgaben/model/todo_item.model.dart';
 import 'package:flutter_aufgaben/model/todo_list.model.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_input.dart';
-import 'package:flutter_aufgaben/widgets/todo/todo_json_buttons.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_list.dart';
 import 'package:flutter_aufgaben/widgets/todo/todo_metadata.dart';
 
@@ -23,45 +22,51 @@ class _TodoPageWidgetState extends State<TodoPageWidget> {
 
   /// Adds a new item to the todo list.
   /// Updates the UI after adding the item.
-  void _addItem(String text, DateTime date) {
+  Future<void> _addItem(String text, DateTime date) async {
+    await todoList.addItem(text, date);
     setState(() {
-      todoList.addItem(text, date);
+      todoList = todoList;
     });
   }
 
   /// Removes an item from the todo list by its index.
   /// Updates the UI after removing the item.
-  void _removeItem(int index) {
+  Future<void> _removeItem(int index) async {
+    await todoList.removeItem(index);
     setState(() {
-      todoList.removeItem(index);
+      todoList = todoList;
     });
   }
 
   /// Toggles the completion status of an item by its index.
   /// Updates the UI after toggling the item's status.
-  void _toggleItem(int index) {
+  Future<void> _toggleItem(int index) async {
+    await todoList.toggleCompleted(index);
     setState(() {
-      todoList.toggleCompleted(index);
+      todoList = todoList;
     });
   }
 
   /// Edits an existing item in the todo list.
   /// Updates the UI after editing the item.
-  void _editItem(TodoItem item) {
+  Future<void> _editItem(TodoItem item) async {
+    await todoList.editItem(item);
     setState(() {
-      todoList.editItem(item);
+      todoList = todoList;
     });
   }
 
-  /// Imports a JSON string to update the todo list.
-  /// Updates the UI after importing the JSON.
-  void _importJson(TodoList? data) {
-    if (data == null) {
-      return;
-    }
+  Future<void> _loadTodos() async {
+    await todoList.loadTodos();
     setState(() {
-      todoList = data;
+      todoList = todoList;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTodos();
   }
 
   @override
@@ -71,7 +76,6 @@ class _TodoPageWidgetState extends State<TodoPageWidget> {
       child: Column(
         spacing: 8.0,
         children: [
-          TodoJsonButtons(onImport: _importJson, data: todoList),
           TodoMetadataWidget(metadata: todoList.metadata),
           TodoListWidget(
             list: todoList.items,

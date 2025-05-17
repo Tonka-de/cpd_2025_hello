@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_aufgaben/router/router.dart';
+import 'package:flutter_aufgaben/services/postgre.service.dart';
 
-void main() {
+void main() async {
+  await PostgreService.prepareDatabase();
+
   runApp(MyApp());
 }
 

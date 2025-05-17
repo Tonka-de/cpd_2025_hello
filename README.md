@@ -4,14 +4,7 @@ Link zu [Aufgabe 4](https://github.com/Tonka-de/cpd_2025_hello/tree/aufgabe4)
 
 ## Aufgabe war:
 
-Erstellt eine JSON-Datei für die Todos mit folgenden Informationen:
-
-- Todo-Name
-- Todo-Nummer
-- Todo-Status
-- Todo-Deadline
-
-Ladet diese JSON-Datei in eure App.
+Eine Datenbank an die App anzubinden. Bevorzugt eine GraphQL Datenbank, wobei nach nachfrage auch PostgreSQL in Ordnung wäre.
 
 ## Info
 
@@ -26,4 +19,12 @@ Password: password123
 
 Auf Arch-Linux nativ. Dafür wird ein fix wegen dem _Flutter-Secure-Storage_ benötigt. Der Fix ist [hier](https://github.com/juliansteenbakker/flutter_secure_storage/issues/829#issuecomment-2824565287) zu finden. Der Fix ist ist nicht schön und eher temporär, aber etwas besseres gibt es derzeit wohl nicht.
 
-Es wurde bewusst **nicht** im Browser getestet, einfach aus dem Grund, dass der Browser es einer Webseite verbietet auf das File-System zuzugreifen. Da Flutter im Web auch nur eine Webseite ist, kann es daher nicht im Browser funktionieren.
+Getestet in: Browser, Archlinux, Windows.
+
+## Anleitung:
+
+Um das Projekt zu starten, bitte stelle sicher, dass Docker installiert ist.
+
+Dann befindet sich im root des Projekts eine `docker-compose.yaml`. Mit dem Terminal einfach `docker compose up -d` im root des Projekts ausführen, dann ist die Datenbank schon eingerichtet.
+
+Danach kann ganz normal über `flutter run` das Projekt gestartet werden.
