@@ -19,7 +19,9 @@ Password: password123
 
 Auf Arch-Linux nativ. Dafür wird ein fix wegen dem _Flutter-Secure-Storage_ benötigt. Der Fix ist [hier](https://github.com/juliansteenbakker/flutter_secure_storage/issues/829#issuecomment-2824565287) zu finden. Der Fix ist ist nicht schön und eher temporär, aber etwas besseres gibt es derzeit wohl nicht.
 
-Getestet in: Browser, Archlinux, Windows.
+Getestet in: Archlinux, Windows.
+
+Im Browser funktioniert es nicht aufgrund des postgre-packages welches ich für die Datenbankverbindung nutze.
 
 ## Anleitung:
 
