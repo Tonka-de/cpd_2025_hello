@@ -40,6 +40,14 @@ class TodoItem {
     return didUpdate;
   }
 
+  /// Constructor for creating a new [TodoItem].
+  TodoItem.forEdit({
+    required this.name,
+    required this.id,
+    required this.status,
+    required this.deadline,
+  });
+
   /// Internal constructor for creating a [TodoItem].
   TodoItem._internal({
     required this.name,

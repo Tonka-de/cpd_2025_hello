@@ -81,7 +81,6 @@ class TodoList {
   }
 
   Future<void> loadTodos() async {
-    print("Loading todos");
     final result = await PostgreService.loadTodos();
     _list =
         result.map((row) {
@@ -94,7 +93,13 @@ class TodoList {
             return TodoItem.fromDB(row);
           }).toList();
     }
-    _list.sort((a, b) => a.deadline.compareTo(b.deadline));
+    _list.sort((a, b) {
+      final compare = a.deadline.compareTo(b.deadline);
+      if (compare == 0) {
+        return a.id.compareTo(b.id);
+      }
+      return compare;
+    });
     await _makeMetadata();
   }
 }

@@ -76,8 +76,6 @@ class PostgreService {
     String status,
     DateTime deadline,
   ) async {
-    print("Updating todo with ID: $id");
-    print("Status: $status");
     await _conn!.execute(
       Sql.named(
         "UPDATE todos SET name = @name, status = @status, deadline = @deadline WHERE id = @id",

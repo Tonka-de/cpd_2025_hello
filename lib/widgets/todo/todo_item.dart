@@ -44,6 +44,14 @@ class TodoItemWidget extends StatelessWidget {
     if (text.isEmpty) {
       return;
     }
+    onEdit(
+      TodoItem.forEdit(
+        id: task.id,
+        name: text,
+        status: task.status,
+        deadline: date,
+      ),
+    );
   }
 
   /// Generates a color based on the status of the todo item.
