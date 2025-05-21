@@ -1,6 +1,6 @@
 # Flutter Aufgaben
 
-Link zu [Aufgabe 4](https://github.com/Tonka-de/cpd_2025_hello/tree/aufgabe4)
+Link zu [Aufgabe 5](https://github.com/Tonka-de/cpd_2025_hello/tree/aufgabe5)
 
 ## Aufgabe war:
 
@@ -25,8 +25,8 @@ Im Browser funktioniert es nicht aufgrund des postgre-packages welches ich für 
 
 ## Anleitung:
 
-Um das Projekt zu starten, bitte stelle sicher, dass Docker installiert ist.
+Um das Projekt zu starten, bitte stelle sicher, dass **Docker** installiert ist.
 
-Dann befindet sich im root des Projekts eine `docker-compose.yaml`. Mit dem Terminal einfach `docker compose up -d` im root des Projekts ausführen, dann ist die Datenbank schon eingerichtet.
+Dann befindet sich im root des Projekts eine `docker-compose.yaml`. Mit dem Terminal einfach `docker compose up -d` im root des Projekts ausführen damit die Datenbank läuft.
 
 Danach kann ganz normal über `flutter run` das Projekt gestartet werden.
